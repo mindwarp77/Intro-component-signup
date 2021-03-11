@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Intro component with sign-up form">
+        <meta name="author" content="Challenge by Frontend Mentor. Coded by mindw@rp.">
+        <link rel="stylesheet" href="style/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <title>Intro component</title>
+    </head>
+    <body>
+        <div class="full-page">
+            <div class="main">
+                <div class="introduction">
+                    <h3>Learn to code by watching others</h3>
+                    <span>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable.</span>
+                </div>
+                <div class="try-div">
+                    <span class="try-span"><span class="seven">Try it free 7 days </span>then $20/mo. thereafter</span>
+                    <form action="/signup" method="post" id="subscription" class="inscription-form">
+                        <input type="text" placeholder="First Name" value="First Name" name="first-name" class="input form-text" id="fname">
+                        <small></small>
+                        <input type="text" placeholder="Last Name" name="last-name" class="input form-text" id="lname">
+                        <small></small>
+                        <input type="email" placeholder="Email Adress" name="email" class="input form-text" id="email">
+                        <small></small>
+                        <input type="password" placeholder="Password" name="password" class="input form-text" id="password">
+                        <small></small>
+                        <input type="submit" value="Claim your free trial" name="button" class="input submit-btn" id="btn">
+                        <span class="CGU">By clicking the button, you are agreeing to our <span class="terms">Terms and Services</span></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="js-file.js"></script>
+    </body>
+</html>

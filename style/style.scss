@@ -1,0 +1,204 @@
+$colorRed : hsl(0, 100%, 74%);
+$colorGreen: hsl(154, 59%, 51%);
+$colorBlue: hsl(248, 32%, 49%);
+$colorDarkBlue:hsl(249, 10%, 26%);
+$colorGrayishBlue:hsl(246, 25%, 77%);
+$colorWhite: rgb(255, 255, 255);
+
+$fontWeight400: 400;
+$fontWeight500: 500;
+$fontWeight600: 600;
+$fontWeight700: 700;
+$fontFamily: Poppins, sans-serif;
+//Font size: 16px
+
+@mixin backgroundImg {
+    background-image: url(bg-intro-desktop.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: $colorRed;
+    background-position: center;
+    @media screen and (max-width:400px) {
+        background-image: url(bg-intro-mobile.png);
+    }
+}
+
+@mixin flexCenterCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    font-family: $fontFamily;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: $fontWeight400;
+}
+
+//FULL PAGE SETTINGS
+.full-page {
+    width: 100%;
+    height: 100vh;
+    font-size: 16px;
+    @include backgroundImg();
+    @include flexCenterCenter();
+
+    //MAIN THUMB SETTINGS
+    .main {
+        width:80%;
+        height: 80vh;
+        @include flexCenterCenter();
+
+        //LEFT SIDE TEXT 
+        .introduction {
+            padding: 1em 2em;
+            width: 50%;
+            color: $colorWhite;
+            & h3 {
+                font-size: 4rem;
+                line-height: 120%;
+                font-weight: $fontWeight600;
+                margin-bottom: .5em;
+            }
+            & span {
+                font-weight: $fontWeight400;
+                font-size: 1.2rem;
+            }
+        }
+
+        //FORM CONTAINER
+        .try-div {
+            width: 50%;
+            height: 80vh;
+            @include flexColumn();
+            justify-content: center;
+            
+            //TOP FORM PURPLE TEXT
+            .try-span {
+                background-color: $colorBlue;
+                border-radius: 8px;
+                color: $colorWhite;
+                font-weight: 400;
+                text-align: center;
+                padding: 15px 20px;
+                font-size: 1.15rem;
+
+                .seven {
+                    font-weight: $fontWeight600;
+                }
+            }
+
+            //FORM DIV
+            .inscription-form {
+                @include flexColumn();
+                justify-content: space-evenly;
+                align-items: center;
+                padding: 40px 40px;
+                background-color: $colorWhite;
+                border-radius: 8px;
+                margin-top: 30px;
+                height: 80vh;
+                //INDIVIDUAL INPUTS
+                .form-control {
+                    margin-bottom: 10px;
+                    padding-bottom: 20px;
+                    width: 100%;
+                    position: relative;
+                    
+                    input {
+                        border: 1px solid $colorGrayishBlue;
+                        width: 100%;
+                        border-radius: 4px;
+                        padding-left: 2em;
+                        padding: 0.5em 0 0.5em 1em;
+                        outline: none;
+                        font-size: 1.2rem;
+                        display: block;
+                    }
+                    
+                    i {
+                        position: absolute;
+                        top: 1em;
+                        right: 20px;
+                        color: $colorRed;
+                        visibility: hidden;
+                    }
+                    small {
+                        visibility: hidden;
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                    }
+
+                    &.success {
+                        input {
+                            border-color: $colorGreen;
+                        }
+                    }
+
+                    &.error {
+                        input {
+                            border-color: $colorRed;
+                        }
+
+                        i.fa-exclamation-circle {
+                            visibility: visible;
+                            color: $colorRed;
+                        }
+
+                        small {
+                            color: $colorRed;
+                            visibility: visible;
+                        }
+                    }
+                }
+                //BUTTON POSITIONING / STYLE
+                .submit-btn {
+                    border-radius: 4px;
+                    padding: 0.8em 0;
+                    width: 100%;
+                    background-color: $colorGreen;
+                    border: none;
+                    text-transform: uppercase;
+                    color: $colorWhite;
+                    letter-spacing: 1.2px;
+                    font-size: 1.05rem;
+                    font-weight: $fontWeight500;
+                    border-bottom: 4px solid hsl(154, 58%, 41%);
+                    transition: background-color 0.5s ease;
+                    //BUTTON STYLE ON FOCUS
+                    &:focus {
+                        outline: none;
+                        border-bottom: 4px solid $colorGreen;
+                        background-color: hsl(154, 58%, 41%);
+                    }
+                }
+            }
+            //CGU STYLE
+            .CGU {
+                color: $colorGrayishBlue;
+                font-weight: $fontWeight400;
+                font-size: 0.8rem;
+                position: relative;
+                top: 1em;
+                text-align: center;
+                .terms {
+                    color: $colorRed;
+                    font-weight: $fontWeight600;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
